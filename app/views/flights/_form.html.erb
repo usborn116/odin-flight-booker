@@ -1,0 +1,30 @@
+<%= form_with(url: '/flights', method: "get") do |form| %>
+
+  <div class="depature search-input">
+    <i class="fas fa-plane-departure"></i>
+    <%= form.label :depart_id, 'Origin', style: "display: block" %>
+    <%= form.select(:depart_id, @airports, selected: params[:depart_id]) %>
+  </div>
+
+  <div class="arrival search-input">
+    <i class="fas fa-plane-arrival"></i>
+    <%= form.label :arrival_id, 'Destination', style: "display: block" %>
+    <%= form.select :arrival_id, @airports, selected: params[:arrival_id] %>
+  </div>
+
+  <div class="date search-input">
+    <i class="fas fa-calendar"></i>
+    <%= form.label :start, style: "display: block" %>
+    <%= form.select(:start, @date_options, selected: params[:start]) %>
+  </div>
+
+  <div class="passengers search-input">
+    <i class="fas fa-users"></i>
+    <%= form.label :passengers, style: "display: block" %>
+    <%= form.select(:passengers, options_for_select(1..4, selected: params[:passengers])) %>
+  </div>
+
+  <div>
+    <%= form.submit 'Search'%>
+  </div>
+<% end %>

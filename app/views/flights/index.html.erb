@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+<div class="landing">
+  <div class="motto-and-form">
+    <p class='motto'>THE FASTEST WAY<br>TO YOUR <i class='colored-txt'>NEXT FLIGHT.</i></p>
+    <%= render 'form', flights: @flights %>
+  </div>
+  <div class="arrows <%='invisible' if !params.has_key?(:depart_id) %>">
+    <i class="fas fa-arrow-down left-arrow"></i>
+    <i class="fas fa-arrow-down"></i>
+    <i class="fas fa-arrow-down right-arrow"></i>
+  </div>
+
+   <div class="flights">
+   <% if !@available_flights.empty?  %>
+    <h2>Flights from <i class='colored-txt'><%= @available_flights.first.departure_airport.code %></i> to 
+        <i class='colored-txt'><%= @available_flights.first.arrival_airport.code %></i></h2>
+      <p class='subheader-date'> On <i class='colored-txt'><%= @available_flights.first.start %></i></p>
+      <div class="flights-grid">
+        <% @available_flights.each do |flight| %>
+            <%= render flight %>
+        <% end %>
+   <% else %>
+      <h2>No Flights available</h2>
+      <div class="placeholder"></div>
+    <% end %>
+      </div>
+</div>
