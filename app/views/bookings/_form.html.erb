@@ -1,0 +1,41 @@
+
+<%= form_with(model: @booking) do |form| %>
+  <% if @booking.errors.any? %>
+    <div style="color: red" class="errors">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+        <% @booking.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.hidden_field :flight_id %>
+    <%= form.hidden_field :date %>
+  </div>
+
+  <div>
+  <% @passenger_num.to_i.times do |p| %>
+    <div class="passenger-subform">
+      <h4>Passenger <%= p +1 %></h4>
+      <%= form.fields_for :passengers do | sub_form |%>
+        <div class='field'>
+          <%= sub_form.label :name %>
+          <%= sub_form.text_field :name %>
+        </div>
+        <div class='field'>
+          <%= sub_form.label :email %>
+          <%= sub_form.text_field :email %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+
+  <div class='button-div'>
+    <%= form.submit 'Submit' %>
+  </div>
+<% end %>

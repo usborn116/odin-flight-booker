@@ -20,8 +20,8 @@
 
   <div class="passengers search-input">
     <i class="fas fa-users"></i>
-    <%= form.label :passengers, style: "display: block" %>
-    <%= form.select(:passengers, options_for_select(1..4, selected: params[:passengers])) %>
+    <%= form.label :passenger_num, style: "display: block" %>
+    <%= form.select(:passenger_num, options_for_select(1..4, selected: params[:passenger_num])) %>
   </div>
 
   <div>

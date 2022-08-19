@@ -1,0 +1,11 @@
+<h1>Your Booking Is Complete!</h1>
+
+<p>Flight:<br> 
+<%= @booking.flight.departure_airport.code%> to <%=@booking.flight.arrival_airport.code%><br>
+On: <%=@booking.flight.start.strftime('%B %d, %Y')%><br>
+Passengers:<br> 
+<% @booking.passengers.each do |p|%>
+<%= p.name %><br>
+<%end%>
+
+<%= link_to "Back To Flight Picker", root_path%>

@@ -4,7 +4,7 @@ class FlightsController < ApplicationController
     @date_options = @flights.map{ |f| [ f.start.to_fs(:rfc822), f.start ] }.uniq
     @airports = Airport.all.map { |a| [a.code, a.id]}
     @available_flights = Flight.where(depart_id: params[:depart_id],
-      arrival_id: params[:arrival_id],)
+      arrival_id: params[:arrival_id])
   end
 
   def show
