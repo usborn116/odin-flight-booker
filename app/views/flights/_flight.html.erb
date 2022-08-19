@@ -29,5 +29,6 @@
       </div>
     </div>
   <% end %>
+  <%= hidden_field_tag :passengers, params[:passengers] %>
   <%= f.submit "Continue to passenger details", class: "button is-dark is-outlined" %>
 <% end %>
