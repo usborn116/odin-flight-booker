@@ -16,9 +16,7 @@
         <i class='colored-txt'><%= @available_flights.first.arrival_airport.code %></i></h2>
       <p class='subheader-date'> On <i class='colored-txt'><%= @available_flights.first.start %></i></p>
       <div class="flights-grid">
-        <% @available_flights.each do |flight| %>
-            <%= render flight %>
-        <% end %>
+            <%= render 'flight' %>
    <% else %>
       <h2>No Flights available</h2>
       <div class="placeholder"></div>

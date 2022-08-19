@@ -1,36 +1,33 @@
-<div id="<%= dom_id flight %>" class="flight">
-  <div class="title-wrapper">
-    <h3>Airline Ticket</h3>
-  </div>
+<%= form_with url: "bookings/new/", method: "get", local: true do |f| %>
+  <% @available_flights.each do |flight| %>
+    <% departure_airport = flight.departure_airport.code %>
+    <% arrival_airport = flight.arrival_airport.code %>
+    <% selected_date = flight.start.strftime('%B %d, %Y') %>
+    <% scheduled_time = flight.start.strftime('%H:%M') %>
+    <% duration = flight.duration_hrs %>
 
-  <div class="flight-details">
-    <div class="details-wrapper">
-      <p class="label">Flight</p>
-      <p class="detail"><%= flight.id %></p>
+    <div class="columns is-vcentered is-centered">
+      <div class="column is-narrow has-text-centered">
+        <%= radio_button_tag(:flight, flight.id, { checked: true }) %>
+      </div>
+
+      <div class="column is-three-fifths">
+        <div class="box">
+          <div class="columns">
+            <div class="column has-text-centered">
+              Departs: <%= departure_airport %>
+            </div>
+            <div class="column has-text-centered">
+              <%= selected_date %><br>
+              <%= (flight.duration_hrs) %> Hours
+            </div>
+            <div class="column has-text-centered">
+              Arrives at: <%= arrival_airport %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="details-wrapper">
-      <p class="label">Date</p>
-      <p class="detail"><%= flight.start.strftime('%d.%m.%y') %></p>
-    </div>
-
-    <div class="details-wrapper">
-      <p class="label">From</p>
-      <p class="detail"><%= flight.departure_airport.code %></p>
-    </div>
-
-    <div class="details-wrapper">
-      <p class="label">To</p>
-      <p class="detail"><%= flight.arrival_airport.code %></p>
-    </div>
-
-    <div class="details-wrapper">
-      <p class="label">Duration</p>
-      <p class="detail"><%= flight.duration_hrs %></p>
-    </div>
-
-    <div></div>
-
-  </div>
-  <div class="flight-footer"></div>
-</div>
+  <% end %>
+  <%= f.submit "Continue to passenger details", class: "button is-dark is-outlined" %>
+<% end %>
