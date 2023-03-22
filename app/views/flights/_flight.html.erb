@@ -7,7 +7,7 @@
     <% duration = flight.duration_hrs %>
 
     <div class="columns is-vcentered is-centered">
-      <div class="column is-narrow has-text-centered">
+      <div class="column is-narrow has-text-centered" id="hide">
         <%= radio_button_tag(:flight_id, flight.id, { checked: true }) %>
       </div>
 
@@ -18,7 +18,7 @@
               Departs: <%= departure_airport %>
             </div>
             <div class="column has-text-centered">
-              <%= selected_date %><br>
+              <%= selected_date %>   <%=scheduled_time %><br>
               <%= (flight.duration_hrs) %> Hours
             </div>
             <div class="column has-text-centered">
@@ -31,5 +31,5 @@
   <% end %>
   <%= hidden_field_tag :passenger_num, params[:passenger_num] %>
 
-  <%= f.submit "Continue to passenger details" %>
+  <div id="hide"><%= f.submit "Continue to passenger details" %></div>
 <% end %>

@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was created to help me practice nested forms in Rails, making sure each question in the form populated/updated/created the right resource. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This was done as an assignment for The Odin Project, which can be found here: https://www.theodinproject.com/lessons/ruby-on-rails-flight-booker

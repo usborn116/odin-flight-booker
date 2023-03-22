@@ -1,0 +1,27 @@
+<% @flight.each do |flight| %>
+  <% departure_airport = flight.departure_airport.code %>
+  <% arrival_airport = flight.arrival_airport.code %>
+  <% selected_date = flight.start.strftime('%B %d, %Y') %>
+  <% scheduled_time = flight.start.strftime('%H:%M') %>
+  <% duration = flight.duration_hrs %>
+
+  <div class="columns is-vcentered is-centered">
+
+    <div class="column is-three-fifths">
+      <div class="box">
+        <div class="columns">
+          <div class="column has-text-centered">
+            Departs: <%= departure_airport %>
+          </div>
+          <div class="column has-text-centered">
+            <%= selected_date %>   <%=scheduled_time %><br>
+            <%= (flight.duration_hrs) %> Hours
+          </div>
+          <div class="column has-text-centered">
+            Arrives at: <%= arrival_airport %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

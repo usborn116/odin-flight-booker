@@ -14,7 +14,7 @@
    <% if !@available_flights.empty?  %>
     <h2>Flights from <i class='colored-txt'><%= @available_flights.first.departure_airport.code %></i> to 
         <i class='colored-txt'><%= @available_flights.first.arrival_airport.code %></i></h2>
-      <p class='subheader-date'> On <i class='colored-txt'><%= @available_flights.first.start %></i></p>
+      <p class='subheader-date'> On <i class='colored-txt'><%= @available_flights.first.start.strftime("%m/%d/%Y") %></i></p>
       <div class="flights-grid">
             <%= render 'flight' %>
    <% else %>

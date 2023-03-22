@@ -1,9 +1,12 @@
+<link rel="stylesheet" href="./booking.css">
+
 <div class="booking-new-content">
   <h2>Passenger Informations</h2>
   <div class="booking">
     <div class="selected-flight">
       <h3>Flight</h3>
-      <%= render @flight %> <p class="passenger-number">Total Passengers: <%= @passenger_num %></p> 
+      <%= render 'flight_info' %> 
+      <p class="passenger-number">Total Passengers: <%= @passenger_num %></p> 
     </div>
     <div class="passengers-form">
       <h3>Passengers</h3>
